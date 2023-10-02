@@ -109,3 +109,169 @@ jobs:
     steps:
       - name: Send QA Agents end email
         run: echo "Sending QA Agents end email"
+
+## Week 1 - Day 5 ##
+
+  k8s-c01-c_stg_approval:
+    name: Start k8s-c01-c Staging 
+    environment: k8s-c01-c_stg
+    runs-on: ubuntu-latest
+    steps:
+      - name: a
+        run: echo "Approval required for Staging Start"
+      
+  k8s-c01-c_stg_start_email:
+    name: Staging k8s-c01-c Start Email
+    needs: k8s-c01-c_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: b
+        run: echo "Sending Staging Start Email"
+      
+  k8s-c01-c_stg_updated:
+    name: Staging k8s-c01-c Updated
+    needs: k8s-c01-c_stg_start_email
+    runs-on: ubuntu-latest
+    steps: 
+      - name: c
+        run: echo "Patching"
+      
+  k8s-c01-c_stg_end_email:
+    name: k8s-c01-c Staging Agents end email
+    needs: k8s-c01-c_stg_updated
+    runs-on: ubuntu-latest
+    steps:
+      - name: d
+        run: echo "Sending Staging Agents end email"
+      
+  k8s-c01-w_stg_approval:
+    name: Start k8s-c01-w Staging
+    needs: k8s-c01-c_stg_end_email
+    environment: k8s-c01-w_stg
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Staging Start"
+      
+  k8s-c01-w_stg_start_email:
+    name: Staging k8s-c01-w Start Email
+    needs: k8s-c01-w_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Start Email
+        run: echo "Sending Staging Start Email"
+      
+  k8s-c01-w_stg_updated:
+    name: Staging k8s-c01-w Updated
+    needs: k8s-c01-w_stg_start_email
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start
+        run: echo "Patching"
+      
+  k8s-c01-w_stg_end_email:
+    name: k8s-c01-w Staging Agents end email
+    needs: k8s-c01-w_stg_updated
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Agents end email
+        run: echo "Sending Staging Agents end email"
+
+  rancher_stg_approval:
+    name: Start rancher Staging
+    needs: k8s-c01-w_stg_end_email
+    environment: rancher_stg
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Staging Start"
+      
+  rancher_stg_start_email:
+    name: Staging rancher Start Email
+    needs: rancher_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Start Email
+        run: echo "Sending Staging Start Email"
+      
+  rancher_stg_updated:
+    name: Staging rancher Updated
+    needs: rancher_stg_start_email
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start
+        run: echo "Patching"
+      
+  rancher_stg_end_email:
+    name: rancher Staging Agents end email
+    needs: rancher_stg_updated
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Agents end email
+        run: echo "Sending Staging Agents end email"
+
+  redis_stg_approval:
+    name: Start redis Staging 
+    needs: rancher_stg_end_email
+    environment: redis_stg
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Staging Start"
+      
+  redis_stg_start_email:
+    name: Staginredis g Start Email
+    needs: redis_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Start Email
+        run: echo "Sending Staging Start Email"
+      
+  redis_stg_updated:
+    name: Staging redis Updated
+    needs: redis_stg_start_email
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start
+        run: echo "Patching"
+      
+  redis_stg_end_email:
+    name: redis Staging Agents end email
+    needs: redis_stg_updated
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Agents end email
+        run: echo "Sending Staging Agents end email"
+
+  redis_crt_approval:
+    name: Start Certification 
+    needs: redis_stg_end_email
+    environment: redis_crt
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Certification Start"
+      
+  redis_crt_start_email:
+    name: Certification Start Email
+    needs: redis_crt_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Certification Start Email
+        run: echo "Sending Certification Start Email"
+      
+  redis_crt_updated:
+    name: Certification Updated
+    needs: redis_crt_start_email
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start
+        run: echo "Patching"
+      
+  redis_crt_end_email:
+    name: Certification Agents end email
+    needs: redis_crt_updated
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Certification Agents end email
+        run: echo "Sending Certification Agents end email"
