@@ -5,8 +5,8 @@ on:
 
 jobs:
 
-## Docker Development ##
-  docker_dev_approval:
+## Week 1 - Day 4 ##
+  docker_devqa_approval:
     name: Start Docker Dev/QA 
     environment: docker_dev
     runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
       
   docker_dev_start_email_LA:
     name: Dev Docker Start Email LA
-    needs: docker_dev_approval
+    needs: docker_devqa_approval
     runs-on: ubuntu-latest
     steps:
       - name: Send Dev Start Email
@@ -24,7 +24,7 @@ jobs:
         
   docker_dev_start_email_KC:
     name: Dev Docker Start Email KC 
-    needs: docker_dev_approval
+    needs: docker_devqa_approval
     runs-on: ubuntu-latest
     steps:
       - name: Send Dev Start Email
@@ -62,3 +62,50 @@ jobs:
       - name: Send Dev Agents end email
         run: echo "Sending Dev Agents end email"
 
+  docker_qa_start_email_LA:
+    name: QA Docker Start Email LA
+    needs: docker_devqa_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send QA Start Email
+        run: echo "Sending QA Start Email"
+        
+  docker_qa_start_email_KC:
+    name: QA Docker Start Email KC 
+    needs: docker_devqa_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send QA Start Email
+        run: echo "Sending Dev Start Email"  
+        
+  docker_qa_updated_LA:
+    name: QA Docker Updated LA
+    needs: docker_qa_start_email_LA
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start
+        run: echo "Patching"
+
+  docker_qa_updated_KC:
+    name: QA Docker Updated KC
+    needs: docker_qa_start_email_KC
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start
+        run: echo "Patching"
+      
+  docker_qa_end_email_LA:
+    name: QA Docker Agents end email LA
+    needs: docker_qa_updated_LA
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send QA Agents end email
+        run: echo "Sending QA Agents end email"
+          
+  docker_qa_end_email_KC:
+    name: QA Docker Agents end email KC
+    needs: docker_qa_updated_KC
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send QA Agents end email
+        run: echo "Sending QA Agents end email"
