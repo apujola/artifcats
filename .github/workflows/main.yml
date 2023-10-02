@@ -110,7 +110,10 @@ jobs:
       - name: Send QA Agents end email
         run: echo "Sending QA Agents end email"
 
+
+
 ## Week 1 - Day 5 ##
+
   k8s-c01-c_stg_approval:
     name: Start k8s-c01-c Staging 
     environment: k8s-c01-c_stg
