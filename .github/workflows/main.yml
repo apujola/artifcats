@@ -11,7 +11,7 @@ jobs:
     environment: k8s-c01-c_stg
     runs-on: ubuntu-latest
     steps:
-      - name: Request Approval
+      - name: Request Approval 2
         run: echo "Approval required for Staging Start"
       
   k8s-c01-c_stg_start_email:
