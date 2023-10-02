@@ -143,9 +143,9 @@ jobs:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
       
-## k8s-c01-w Staging ##
   k8s-c01-w_stg_approval:
-    name: Start k8s-c01-w Staging 
+    name: Start k8s-c01-w Staging
+    needs: k8s-c01-c_stg_end_email
     environment: k8s-c01-w_stg
     runs-on: ubuntu-latest
     steps:
