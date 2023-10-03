@@ -7,32 +7,56 @@ jobs:
 
 ## k8s-c01-c Staging ##
   k8s-c01-c_stg_approval:
-    name: Start k8s-c01-c Staging 
+    name: Start k8s-c01-c Staging
     environment: k8s-c01-c_stg
     runs-on: ubuntu-latest
     steps:
       - name: Request Approval
         run: echo "Approval required for Staging Start"
       
-  k8s-c01-c_stg_start_email:
-    name: Staging k8s-c01-c Start Email
+  k8s-c01-c_stg_start_email_G1:
+    name: Staging k8s-c01-c Start Email G1
     needs: k8s-c01-c_stg_approval
     runs-on: ubuntu-latest
     steps:
-      - name: Send Staging Start Email
+      - name: Send Staging Start Email G1
         run: echo "Sending Staging Start Email"
       
-  k8s-c01-c_stg_updated:
-    name: Staging k8s-c01-c Updated
-    needs: k8s-c01-c_stg_start_email
+  k8s-c01-c_stg_updated_G1:
+    name: Staging k8s-c01-c Updated G1
+    needs: k8s-c01-c_stg_start_email_G1
     runs-on: ubuntu-latest
     steps: 
       - name: Patching start
         run: echo "Patching"
       
-  k8s-c01-c_stg_end_email:
-    name: k8s-c01-c Staging Agents end email
-    needs: k8s-c01-c_stg_updated
+  k8s-c01-c_stg_end_email_G1:
+    name: k8s-c01-c Staging Agents end email G1
+    needs: k8s-c01-c_stg_updated_G1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Agents end email
+        run: echo "Sending Staging Agents end email"
+
+  k8s-c01-c_stg_start_email_G2:
+    name: Staging k8s-c01-c Start Email G2
+    needs: k8s-c01-c_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Start Email G2
+        run: echo "Sending Staging Start Email"
+      
+  k8s-c01-c_stg_updated_G2:
+    name: Staging k8s-c01-c Updated G2
+    needs: k8s-c01-c_stg_start_email_G2
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start
+        run: echo "Patching"
+      
+  k8s-c01-c_stg_end_email_G2:
+    name: k8s-c01-c Staging Agents end email G2
+    needs: k8s-c01-c_stg_updated_G2
     runs-on: ubuntu-latest
     steps:
       - name: Send Staging Agents end email
