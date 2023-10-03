@@ -74,7 +74,7 @@ jobs:
 
 ## Rancher Staging ##
   rancher_stg_approval:
-    name: Start rancher Staging 
+    name: Start Rancher Staging 
     environment: rancher_stg
     runs-on: ubuntu-latest
     steps:
@@ -82,7 +82,7 @@ jobs:
         run: echo "Approval required for Staging Start"
       
   rancher_stg_start_email:
-    name: Staging rancher Start Email
+    name: Staging Rancher Start Email
     needs: rancher_stg_approval
     runs-on: ubuntu-latest
     steps:
@@ -90,7 +90,7 @@ jobs:
         run: echo "Sending Staging Start Email"
       
   rancher_stg_updated:
-    name: Staging rancher Updated
+    name: Staging Rancher Updated
     needs: rancher_stg_start_email
     runs-on: ubuntu-latest
     steps: 
@@ -98,7 +98,7 @@ jobs:
         run: echo "Patching"
       
   rancher_stg_end_email:
-    name: rancher Staging Agents end email
+    name: Rancher Staging Agents end email
     needs: rancher_stg_updated
     runs-on: ubuntu-latest
     steps:
@@ -107,7 +107,7 @@ jobs:
 
 ## Redis Staging ##
   redis_stg_approval:
-    name: Start redis Staging 
+    name: Start Redis Staging 
     environment: redis_stg
     runs-on: ubuntu-latest
     steps:
@@ -115,7 +115,7 @@ jobs:
         run: echo "Approval required for Staging Start"
       
   redis_stg_start_email:
-    name: Staginredis g Start Email
+    name: Staging Redis g Start Email
     needs: redis_stg_approval
     runs-on: ubuntu-latest
     steps:
@@ -131,7 +131,7 @@ jobs:
         run: echo "Patching"
       
   redis_stg_end_email:
-    name: redis Staging Agents end email
+    name: Redis Staging Agents end email
     needs: redis_stg_updated
     runs-on: ubuntu-latest
     steps:
@@ -139,9 +139,10 @@ jobs:
         run: echo "Sending Staging Agents end email"
 
 
-## redis Certification ##
+## Redis Certification ##
   redis_crt_approval:
-    name: Start Certification 
+    name: Start Certification
+    needs: redis_stg_end_email
     environment: redis_crt
     runs-on: ubuntu-latest
     steps:
