@@ -5,40 +5,7 @@ on:
 
 jobs:
 
-## Docker Development ##
-  docker_dev_approval:
-    name: Start Docker Dev/QA 
-    environment: docker_dev
-    runs-on: ubuntu-latest
-    steps:
-      - name: Request Approval
-        run: echo "Approval required for Dev/QA Start"
-      
-  docker_dev_start_email:
-    name: Dev Docker Start Email
-    needs: docker_dev_approval
-    runs-on: ubuntu-latest
-    steps:
-      - name: Send Dev Start Email
-        run: echo "Sending Dev Start Email"
-        
-  docker_dev_updated:
-    name: Dev Docker Updated
-    needs: docker_dev_start_email
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Patching start
-        run: echo "Patching"
-      
-  docker_dev_end_email:
-    name: Dev Docker Agents end email
-    needs: docker_dev_updated
-    runs-on: ubuntu-latest
-    steps:
-      - name: Send Dev Agents end email
-        run: echo "Sending Dev Agents end email"
-
-## k8s-c01-c Staging ##
+## Week 1 - Day 5 ##
   k8s-c01-c_stg_approval:
     name: Start k8s-c01-c Staging 
     environment: k8s-c01-c_stg
@@ -71,9 +38,9 @@ jobs:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
       
-## k8s-c01-w Staging ##
   k8s-c01-w_stg_approval:
-    name: Start k8s-c01-w Staging 
+    name: Start k8s-c01-w Staging
+    needs: k8s-c01-c_stg_end_email
     environment: k8s-c01-w_stg
     runs-on: ubuntu-latest
     steps:
@@ -104,10 +71,9 @@ jobs:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
 
-
-## rancher Staging ##
   rancher_stg_approval:
-    name: Start rancher Staging 
+    name: Start rancher Staging
+    needs: k8s-c01-w_stg_end_email
     environment: rancher_stg
     runs-on: ubuntu-latest
     steps:
@@ -138,9 +104,9 @@ jobs:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
 
-## redis Staging ##
   redis_stg_approval:
     name: Start redis Staging 
+    needs: rancher_stg_end_email
     environment: redis_stg
     runs-on: ubuntu-latest
     steps:
@@ -171,10 +137,9 @@ jobs:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
 
-
-## redis Certification ##
   redis_crt_approval:
     name: Start Certification 
+    needs: redis_stg_end_email
     environment: redis_crt
     runs-on: ubuntu-latest
     steps:
