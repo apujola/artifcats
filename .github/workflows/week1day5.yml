@@ -1,11 +1,11 @@
-name: test
+name: Staging and Certification
 
 on:
   workflow_dispatch:  # manual trigger
 
 jobs:
 
-## Week 1 - Day 5 ##
+## k8s-c01-c Staging ##
   k8s-c01-c_stg_approval:
     name: Start k8s-c01-c Staging 
     environment: k8s-c01-c_stg
@@ -38,9 +38,9 @@ jobs:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
       
+## k8s-c01-w Staging ##
   k8s-c01-w_stg_approval:
-    name: Start k8s-c01-w Staging
-    needs: k8s-c01-c_stg_end_email
+    name: Start k8s-c01-w Staging 
     environment: k8s-c01-w_stg
     runs-on: ubuntu-latest
     steps:
@@ -71,9 +71,10 @@ jobs:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
 
+
+## Rancher Staging ##
   rancher_stg_approval:
-    name: Start rancher Staging
-    needs: k8s-c01-w_stg_end_email
+    name: Start rancher Staging 
     environment: rancher_stg
     runs-on: ubuntu-latest
     steps:
@@ -104,9 +105,9 @@ jobs:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
 
+## Redis Staging ##
   redis_stg_approval:
     name: Start redis Staging 
-    needs: rancher_stg_end_email
     environment: redis_stg
     runs-on: ubuntu-latest
     steps:
@@ -137,9 +138,10 @@ jobs:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
 
+
+## redis Certification ##
   redis_crt_approval:
     name: Start Certification 
-    needs: redis_stg_end_email
     environment: redis_crt
     runs-on: ubuntu-latest
     steps:
