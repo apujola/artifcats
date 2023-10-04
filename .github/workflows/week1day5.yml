@@ -161,61 +161,118 @@ jobs:
       - name: Request Approval
         run: echo "Approval required for Staging Start"
       
-  redis_stg_start_email:
-    name: Staging Redis g Start Email
+  redis_stg_start_email_G1:
+    name: Staging Redis g Start Email G1
     needs: redis_stg_approval
     runs-on: ubuntu-latest
     steps:
-      - name: Send Staging Start Email
-        run: echo "Sending Staging Start Email"
+      - name: Send Staging Start Email G1
+        run: echo "Sending Staging Start Email G1"
       
-  redis_stg_updated:
-    name: Staging redis Updated
-    needs: redis_stg_start_email
+  redis_stg_updated_G1:
+    name: Staging redis Updated G1
+    needs: redis_stg_start_email_G1
     runs-on: ubuntu-latest
     steps: 
-      - name: Patching start
-        run: echo "Patching"
+      - name: Patching start G1
+        run: echo "Patching G1"
       
-  redis_stg_end_email:
-    name: Redis Staging Agents end email
-    needs: redis_stg_updated
+  redis_stg_end_email_G1:
+    name: Redis Staging Agents end email G1
+    needs: redis_stg_updated_G1
     runs-on: ubuntu-latest
     steps:
-      - name: Send Staging Agents end email
-        run: echo "Sending Staging Agents end email"
+      - name: Send Staging Agents end email G1
+        run: echo "Sending Staging Agents end email G1"
+
+  redis_stg_start_email_G2:
+    name: Staging Redis g Start Email G2
+    needs: redis_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Start Email G2
+        run: echo "Sending Staging Start Email G2"
+      
+  redis_stg_updated_G2:
+    name: Staging redis Updated G2
+    needs: redis_stg_start_email_G2
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start G2
+        run: echo "Patching G2"
+      
+  redis_stg_end_email_G2:
+    name: Redis Staging Agents end email G2
+    needs: redis_stg_updated_G2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Agents end email G2
+        run: echo "Sending Staging Agents end email G2"
 
 
 ## Redis Certification ##
-  redis_crt_approval:
-    name: Start Certification
-    needs: redis_stg_end_email
+  redis_crt_approval_G1:
+    name: Start Certification G1
+    needs: redis_stg_end_email_G1
     environment: redis_crt
     runs-on: ubuntu-latest
     steps:
-      - name: Request Approval
-        run: echo "Approval required for Certification Start"
+      - name: Request Approval G1
+        run: echo "Approval required for Certification Start G1"
       
-  redis_crt_start_email:
-    name: Certification Start Email
-    needs: redis_crt_approval
+  redis_crt_start_email_G1:
+    name: Certification Start Email G1
+    needs: redis_crt_approval_G1
     runs-on: ubuntu-latest
     steps:
-      - name: Send Certification Start Email
-        run: echo "Sending Certification Start Email"
+      - name: Send Certification Start Email G1
+        run: echo "Sending Certification Start Email G1"
       
-  redis_crt_updated:
-    name: Certification Updated
-    needs: redis_crt_start_email
+  redis_crt_updated_G1:
+    name: Certification Updated G1
+    needs: redis_crt_start_email_G1
     runs-on: ubuntu-latest
     steps: 
-      - name: Patching start
-        run: echo "Patching"
+      - name: Patching start G1
+        run: echo "Patching G1"
       
-  redis_crt_end_email:
-    name: Certification Agents end email
-    needs: redis_crt_updated
+  redis_crt_end_email_G1:
+    name: Certification Agents end email G1
+    needs: redis_crt_updated_G1
     runs-on: ubuntu-latest
     steps:
-      - name: Send Certification Agents end email
-        run: echo "Sending Certification Agents end email"
+      - name: Send Certification Agents end email G1
+        run: echo "Sending Certification Agents end email G1"
+        
+  redis_crt_approval_G2:
+    name: Start Certification G2
+    needs: redis_stg_end_email_G2
+    environment: redis_crt
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Approval G2
+        run: echo "Approval required for Certification Start G2"
+      
+  redis_crt_start_email_G2:
+    name: Certification Start Email G2
+    needs: redis_crt_approval_G2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Certification Start Email G2
+        run: echo "Sending Certification Start Email G2"
+      
+  redis_crt_updated_G2:
+    name: Certification Updated G2
+    needs: redis_crt_start_email_G2
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start G2
+        run: echo "Patching G2"
+      
+  redis_crt_end_email_G2:
+    name: Certification Agents end email G2
+    needs: redis_crt_updated_G2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Certification Agents end email G2
+        run: echo "Sending Certification Agents end email G2"
