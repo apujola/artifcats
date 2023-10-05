@@ -6,316 +6,745 @@ on:
 jobs:
 
 ## k8s-c01-c Production ##
-  k8s-c01-c_stg_approval:
-    name: Start k8s-c01-c Staging
-    environment: k8s-c01-c_stg
+  k8s-c01-c_pro_approval:
+    name: Start k8s-c01-c Production
+    environment: k8s-c01-c_pro
     runs-on: Linux
     steps:
       - name: Request Approval
-        run: echo "Approval required for Staging Start G1 & G2 for LA & KC"
+        run: echo "Approval required for Production Start G1 & G2 for LA & KC"
       
-  k8s-c01-c_stg_start_email_G1_KC:
-    name: Staging k8s-c01-c Start Email G1 KC
-    needs: k8s-c01-c_stg_approval
+  k8s-c01-c_pro_start_email_G1_KC:
+    name: Production k8s-c01-c Start Email G1 KC
+    needs: k8s-c01-c_pro_approval
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G1 KC
-        run: echo "Sending Staging Start Email G1 KC"
+      - name: Send Production Start Email G1 KC
+        run: echo "Sending Production Start Email G1 KC"
       
-  k8s-c01-c_stg_updated_G1_KC:
-    name: Staging k8s-c01-c Updated G1 KC
-    needs: k8s-c01-c_stg_start_email_G1_KC
+  k8s-c01-c_pro_updated_G1_KC:
+    name: Production k8s-c01-c Updated G1 KC
+    needs: k8s-c01-c_pro_start_email_G1_KC
     runs-on: Linux
     steps: 
       - name: Patching start G1 KC
         run: echo "Patching G1 KC"
       
-  k8s-c01-c_stg_end_email_G1_KC:
-    name: k8s-c01-c Staging Agents end email G1 KC
-    needs: k8s-c01-c_stg_updated_G1_KC
+  k8s-c01-c_pro_end_email_G1_KC:
+    name: k8s-c01-c Production Agents end email G1 KC
+    needs: k8s-c01-c_pro_updated_G1_KC
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G1 KC
-        run: echo "Sending Staging Agents end email G1 KC"
+      - name: Send Production Agents end email G1 KC
+        run: echo "Sending Production Agents end email G1 KC"
 
-  k8s-c01-c_stg_start_email_G2_KC:
-    name: Staging k8s-c01-c Start Email G2 KC
-    needs: k8s-c01-c_stg_approval
+  k8s-c01-c_pro_start_email_G2_KC:
+    name: Production k8s-c01-c Start Email G2 KC
+    needs: k8s-c01-c_pro_approval
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G2 KC
-        run: echo "Sending Staging Start Email G2 KC"
+      - name: Send Production Start Email G2 KC
+        run: echo "Sending Production Start Email G2 KC"
       
-  k8s-c01-c_stg_updated_G2_KC:
-    name: Staging k8s-c01-c Updated G2 KC
-    needs: k8s-c01-c_stg_start_email_G2_KC
+  k8s-c01-c_pro_updated_G2_KC:
+    name: Production k8s-c01-c Updated G2 KC
+    needs: k8s-c01-c_pro_start_email_G2_KC
     runs-on: Linux
     steps: 
       - name: Patching start G2 KC
         run: echo "Patching G2 KC"
       
-  k8s-c01-c_stg_end_email_G2_KC:
-    name: k8s-c01-c Staging Agents end email G2 KC
-    needs: k8s-c01-c_stg_updated_G2_KC
+  k8s-c01-c_pro_end_email_G2_KC:
+    name: k8s-c01-c Production Agents end email G2 KC
+    needs: k8s-c01-c_pro_updated_G2_KC
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G2 KC
-        run: echo "Sending Staging Agents end email G2 KC"
+      - name: Send Production Agents end email G2 KC
+        run: echo "Sending Production Agents end email G2 KC"
 
-  k8s-c01-c_stg_start_email_G1_LA:
-    name: Staging k8s-c01-c Start Email G1 LA
-    needs: k8s-c01-c_stg_approval
+  k8s-c01-c_pro_start_email_G1_LA:
+    name: Production k8s-c01-c Start Email G1 LA
+    needs: k8s-c01-c_pro_approval
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G1 LA
-        run: echo "Sending Staging Start Email G1 LA"
+      - name: Send Production Start Email G1 LA
+        run: echo "Sending Production Start Email G1 LA"
       
-  k8s-c01-c_stg_updated_G1_LA:
-    name: Staging k8s-c01-c Updated G1 LA
-    needs: k8s-c01-c_stg_start_email_G1_LA
+  k8s-c01-c_pro_updated_G1_LA:
+    name: Production k8s-c01-c Updated G1 LA
+    needs: k8s-c01-c_pro_start_email_G1_LA
     runs-on: Linux
     steps: 
       - name: Patching start G1 LA
         run: echo "Patching G1 LA"
       
-  k8s-c01-c_stg_end_email_G1_LA:
-    name: k8s-c01-c Staging Agents end email G1 LA
-    needs: k8s-c01-c_stg_updated_G1_LA
+  k8s-c01-c_pro_end_email_G1_LA:
+    name: k8s-c01-c Production Agents end email G1 LA
+    needs: k8s-c01-c_pro_updated_G1_LA
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G1 LA
-        run: echo "Sending Staging Agents end email G1 LA"
+      - name: Send Production Agents end email G1 LA
+        run: echo "Sending Production Agents end email G1 LA"
 
-  k8s-c01-c_stg_start_email_G2_LA:
-    name: Staging k8s-c01-c Start Email G2 LA
-    needs: k8s-c01-c_stg_approval
+  k8s-c01-c_pro_start_email_G2_LA:
+    name: Production k8s-c01-c Start Email G2 LA
+    needs: k8s-c01-c_pro_approval
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G2 LA
-        run: echo "Sending Staging Start Email G2 LA"
+      - name: Send Production Start Email G2 LA
+        run: echo "Sending Production Start Email G2 LA"
       
-  k8s-c01-c_stg_updated_G2_LA:
-    name: Staging k8s-c01-c Updated G2 LA
-    needs: k8s-c01-c_stg_start_email_G2_LA
+  k8s-c01-c_pro_updated_G2_LA:
+    name: Production k8s-c01-c Updated G2 LA
+    needs: k8s-c01-c_pro_start_email_G2_LA
     runs-on: Linux
     steps: 
       - name: Patching start G2 LA
         run: echo "Patching G2 LA"
       
-  k8s-c01-c_stg_end_email_G2_LA:
-    name: k8s-c01-c Staging Agents end email G2 LA
-    needs: k8s-c01-c_stg_updated_G2_LA
+  k8s-c01-c_pro_end_email_G2_LA:
+    name: k8s-c01-c Production Agents end email G2 LA
+    needs: k8s-c01-c_pro_updated_G2_LA
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G2 LA
-        run: echo "Sending Staging Agents end email G2 LA"
+      - name: Send Production Agents end email G2 LA
+        run: echo "Sending Production Agents end email G2 LA"
 
 ## k8s-c01-w Production ##
-  k8s-c01-w_stg_approval:
-    name: Start k8s-c01-w Staging
-    environment: k8s-c01-w_stg
+  k8s-c01-w_pro_approval:
+    name: Start k8s-c01-w Production
+    environment: k8s-c01-w_pro
     runs-on: Linux
     steps:
       - name: Request Approval
-        run: echo "Approval required for Staging Start G1 & G2 for LA & KC"
+        run: echo "Approval required for Production Start G1 & G2 for LA & KC"
       
-  k8s-c01-w_stg_start_email_G1_KC:
-    name: Staging k8s-c01-w Start Email G1 KC
-    needs: k8s-c01-w_stg_approval
+  k8s-c01-w_pro_start_email_G1_KC:
+    name: Production k8s-c01-w Start Email G1 KC
+    needs: k8s-c01-w_pro_approval
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G1 KC
-        run: echo "Sending Staging Start Email G1 KC"
+      - name: Send Production Start Email G1 KC
+        run: echo "Sending Production Start Email G1 KC"
       
-  k8s-c01-w_stg_updated_G1_KC:
-    name: Staging k8s-c01-w Updated G1 KC
-    needs: k8s-c01-w_stg_start_email_G1_KC
+  k8s-c01-w_pro_updated_G1_KC:
+    name: Production k8s-c01-w Updated G1 KC
+    needs: k8s-c01-w_pro_start_email_G1_KC
     runs-on: Linux
     steps: 
       - name: Patching start G1 KC
         run: echo "Patching G1 KC"
       
-  k8s-c01-w_stg_end_email_G1_KC:
-    name: k8s-c01-w Staging Agents end email G1 KC
-    needs: k8s-c01-w_stg_updated_G1_KC
+  k8s-c01-w_pro_end_email_G1_KC:
+    name: k8s-c01-w Production Agents end email G1 KC
+    needs: k8s-c01-w_pro_updated_G1_KC
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G1 KC
-        run: echo "Sending Staging Agents end email G1 KC"
+      - name: Send Production Agents end email G1 KC
+        run: echo "Sending Production Agents end email G1 KC"
 
-  k8s-c01-w_stg_start_email_G2_KC:
-    name: Staging k8s-c01-w Start Email G2 KC
-    needs: k8s-c01-w_stg_approval
+  k8s-c01-w_pro_start_email_G2_KC:
+    name: Production k8s-c01-w Start Email G2 KC
+    needs: k8s-c01-w_pro_approval
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G2 KC
-        run: echo "Sending Staging Start Email G2 KC"
+      - name: Send Production Start Email G2 KC
+        run: echo "Sending Production Start Email G2 KC"
       
-  k8s-c01-w_stg_updated_G2_KC:
-    name: Staging k8s-c01-w Updated G2 KC
-    needs: k8s-c01-w_stg_start_email_G2_KC
+  k8s-c01-w_pro_updated_G2_KC:
+    name: Production k8s-c01-w Updated G2 KC
+    needs: k8s-c01-w_pro_start_email_G2_KC
     runs-on: Linux
     steps: 
       - name: Patching start G2 KC
         run: echo "Patching G2 KC"
       
-  k8s-c01-w_stg_end_email_G2_KC:
-    name: k8s-c01-w Staging Agents end email G2 KC
-    needs: k8s-c01-w_stg_updated_G2_KC
+  k8s-c01-w_pro_end_email_G2_KC:
+    name: k8s-c01-w Production Agents end email G2 KC
+    needs: k8s-c01-w_pro_updated_G2_KC
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G2 KC
-        run: echo "Sending Staging Agents end email G2 KC"
+      - name: Send Production Agents end email G2 KC
+        run: echo "Sending Production Agents end email G2 KC"
 
-  k8s-c01-w_stg_start_email_G1_LA:
-    name: Staging k8s-c01-w Start Email G1 LA
-    needs: k8s-c01-w_stg_approval
+  k8s-c01-w_pro_start_email_G1_LA:
+    name: Production k8s-c01-w Start Email G1 LA
+    needs: k8s-c01-w_pro_approval
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G1 LA
-        run: echo "Sending Staging Start Email G1 LA"
+      - name: Send Production Start Email G1 LA
+        run: echo "Sending Production Start Email G1 LA"
       
-  k8s-c01-w_stg_updated_G1_LA:
-    name: Staging k8s-c01-w Updated G1 LA
-    needs: k8s-c01-w_stg_start_email_G1_LA
+  k8s-c01-w_pro_updated_G1_LA:
+    name: Production k8s-c01-w Updated G1 LA
+    needs: k8s-c01-w_pro_start_email_G1_LA
     runs-on: Linux
     steps: 
       - name: Patching start G1 LA
         run: echo "Patching G1 LA"
       
-  k8s-c01-w_stg_end_email_G1_LA:
-    name: k8s-c01-w Staging Agents end email G1 LA
-    needs: k8s-c01-w_stg_updated_G1_LA
+  k8s-c01-w_pro_end_email_G1_LA:
+    name: k8s-c01-w Production Agents end email G1 LA
+    needs: k8s-c01-w_pro_updated_G1_LA
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G1 LA
-        run: echo "Sending Staging Agents end email G1 LA"
+      - name: Send Production Agents end email G1 LA
+        run: echo "Sending Production Agents end email G1 LA"
 
-  k8s-c01-w_stg_start_email_G2_LA:
-    name: Staging k8s-c01-w Start Email G2 LA
-    needs: k8s-c01-w_stg_approval
+  k8s-c01-w_pro_start_email_G2_LA:
+    name: Production k8s-c01-w Start Email G2 LA
+    needs: k8s-c01-w_pro_approval
     runs-on: Linux
     steps:
       - name: Send Staging Start Email G2 LA
         run: echo "Sending Staging Start Email G2 LA"
       
   k8s-c01-w_stg_updated_G2_LA:
-    name: Staging k8s-c01-w Updated G2 LA
-    needs: k8s-c01-w_stg_start_email_G2_LA
+    name: Production k8s-c01-w Updated G2 LA
+    needs: k8s-c01-w_pro_start_email_G2_LA
     runs-on: Linux
     steps: 
       - name: Patching start G2 LA
         run: echo "Patching G2 LA"
       
-  k8s-c01-w_stg_end_email_G2_LA:
-    name: k8s-c01-w Staging Agents end email G2 LA
-    needs: k8s-c01-w_stg_updated_G2_LA
+  k8s-c01-w_pro_end_email_G2_LA:
+    name: k8s-c01-w Production Agents end email G2 LA
+    needs: k8s-c01-w_pro_updated_G2_LA
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G2 LA
-        run: echo "Sending Staging Agents end email G2 LA"
+      - name: Send Production Agents end email G2 LA
+        run: echo "Sending Production Agents end email G2 LA"
 
 ## Redis Production ##
-  redis_stg_approval:
-    name: Start Redis Staging 
-    environment: redis_stg
-    runs-on: ubuntu-latest
-    steps:
-      - name: Request Approval
-        run: echo "Approval required for Staging Start"
-      
-  redis_stg_start_email_G1_LA:
-    name: Staging Redis g Start Email G1 LA
-    needs: redis_stg_approval
+  redis_pro_approval:
+    name: Start Redis Production 
+    environment: redis_pro
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G1 LA
-        run: echo "Sending Staging Start Email G1 LA"
+      - name: Request Approval
+        run: echo "Approval required for Production Start"
       
-  redis_stg_updated_G1_LA:
-    name: Staging redis Updated G1 LA
-    needs: redis_stg_start_email_G1_LA
+  redis_pro_start_email_G1_LA:
+    name: Production Redis g Start Email G1 LA
+    needs: redis_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G1 LA
+        run: echo "Sending Production Start Email G1 LA"
+      
+  redis_pro_updated_G1_LA:
+    name: Production redis Updated G1 LA
+    needs: redis_pro_start_email_G1_LA
     runs-on: Linux
     steps: 
       - name: Patching start G1 LA
         run: echo "Patching G1 LA"
       
-  redis_stg_end_email_G1_LA:
-    name: Redis Staging Agents end email G1 LA
-    needs: redis_stg_updated_G1_LA
+  redis_pro_end_email_G1_LA:
+    name: Redis Production Agents end email G1 LA
+    needs: redis_pro_updated_G1_LA
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G1 LA
-        run: echo "Sending Staging Agents end email G1 LA"
+      - name: Send Production Agents end email G1 LA
+        run: echo "Sending Production Agents end email G1 LA"
 
-  redis_stg_start_email_G2_LA:
-    name: Staging Redis g Start Email G2 LA
-    needs: redis_stg_approval
+  redis_pro_start_email_G2_LA:
+    name: Production Redis g Start Email G2 LA
+    needs: redis_pro_approval
     runs-on: Linux
     steps:
       - name: Send Staging Start Email G2 LA
         run: echo "Sending Staging Start Email G2 LA"
       
-  redis_stg_updated_G2_LA:
-    name: Staging redis Updated G2 LA
-    needs: redis_stg_start_email_G2_LA
+  redis_pro_updated_G2_LA:
+    name: Production redis Updated G2 LA
+    needs: redis_pro_start_email_G2_LA
     runs-on: Linux
     steps: 
       - name: Patching start G2 LA
         run: echo "Patching G2 LA"
       
-  redis_stg_end_email_G2_LA:
-    name: Redis Staging Agents end email G2 LA
-    needs: redis_stg_updated_G2_LA
+  redis_pro_end_email_G2_LA:
+    name: Redis Production Agents end email G2 LA
+    needs: redis_pro_updated_G2_LA
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G2 LA
-        run: echo "Sending Staging Agents end email G2 LA"
+      - name: Send Production Agents end email G2 LA
+        run: echo "Sending Production Agents end email G2 LA"
 
-  redis_stg_start_email_G1_KC:
-    name: Staging Redis g Start Email G1 KC
-    needs: redis_stg_approval
+  redis_pro_start_email_G1_KC:
+    name: Production Redis g Start Email G1 KC
+    needs: redis_pro_approval
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G1 KC
-        run: echo "Sending Staging Start Email G1 KC"
+      - name: Send Production Start Email G1 KC
+        run: echo "Sending Production Start Email G1 KC"
       
-  redis_stg_updated_G1_KC:
-    name: Staging redis Updated G1 KC
-    needs: redis_stg_start_email_G1_KC
+  redis_pro_updated_G1_KC:
+    name: Production redis Updated G1 KC
+    needs: redis_pro_start_email_G1_KC
     runs-on: Linux
     steps: 
       - name: Patching start G1 KC
         run: echo "Patching G1 KC"
       
-  redis_stg_end_email_G1_KC:
-    name: Redis Staging Agents end email G1 KC
-    needs: redis_stg_updated_G1_KC
+  redis_pro_end_email_G1_KC:
+    name: Redis Production Agents end email G1 KC
+    needs: redis_pro_updated_G1_KC
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G1 KC
-        run: echo "Sending Staging Agents end email G1 KC"
+      - name: Send Production Agents end email G1 KC
+        run: echo "Sending Production Agents end email G1 KC"
 
-  redis_stg_start_email_G2_KC:
-    name: Staging Redis g Start Email G2 KC
-    needs: redis_stg_approval
+  redis_pro_start_email_G2_KC:
+    name: Production Redis g Start Email G2 KC
+    needs: redis_pro_approval
     runs-on: Linux
     steps:
-      - name: Send Staging Start Email G2 KC
-        run: echo "Sending Staging Start Email G2 KC"
+      - name: Send Production Start Email G2 KC
+        run: echo "Sending Production Start Email G2 KC"
       
-  redis_stg_updated_G2_KC:
-    name: Staging redis Updated G2 KC
-    needs: redis_stg_start_email_G2_KC
+  redis_pro_updated_G2_KC:
+    name: Production redis Updated G2 KC
+    needs: redis_pro_start_email_G2_KC
     runs-on: Linux
     steps: 
       - name: Patching start G2 KC
         run: echo "Patching G2 KC"
       
-  redis_stg_end_email_G2_KC:
-    name: Redis Staging Agents end email G2 KC
-    needs: redis_stg_updated_G2_KC
+  redis_pro_end_email_G2_KC:
+    name: Redis Production Agents end email G2 KC
+    needs: redis_pro_updated_G2_KC
     runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G2 KC
-        run: echo "Sending Staging Agents end email G2 KC"
+      - name: Send Production Agents end email G2 KC
+        run: echo "Sending Production Agents end email G2 KC"
+
+## Grygl Production ##
+  grygl_pro_approval:
+    name: Start Grygl Production 
+    environment: grygl_pro
+    runs-on: Linux
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Production Start"
+      
+  grygl_pro_start_email_G1:
+    name: Production Grygl g Start Email G1
+    needs: grygl_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G1
+        run: echo "Sending Staging Start Email G1"
+      
+  grygl_pro_updated_G1:
+    name: Production Grygl Updated G1
+    needs: grygl_pro_start_email_G1
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1
+        run: echo "Patching G1"
+      
+  grygl_pro_end_email_G1:
+    name: Grygl Production Agents end email G1
+    needs: grygl_pro_updated_G1
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G1
+        run: echo "Sending Production Agents end email G1"
+
+  grygl_pro_start_email_G2:
+    name: Production Grygl g Start Email G2
+    needs: grygl_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G2
+        run: echo "Sending Production Start Email G2"
+      
+  grygl_pro_updated_G2:
+    name: Production Grygl Updated G2
+    needs: grygl_pro_start_email_G2
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2
+        run: echo "Patching G2"
+      
+  grygl_pro_end_email_G2:
+    name: Grygl Production Agents end email G2
+    needs: grygl_pro_updated_G2
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G2
+        run: echo "Sending Production Agents end email G2"
+
+  ## Icinga Production ##
+  icinga_pro_approval:
+    name: Start Icinga Production 
+    environment: redis_pro
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Production Start"
+      
+  icinga_pro_start_email_G1_LA:
+    name: Production Icinga g Start Email G1 LA
+    needs: icinga_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G1 LA
+        run: echo "Sending Production Start Email G1 LA"
+      
+  icinga_pro_updated_G1_LA:
+    name: Production Icinga Updated G1 LA
+    needs: icinga_pro_start_email_G1_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 LA
+        run: echo "Patching G1 LA"
+      
+  icinga_pro_end_email_G1_LA:
+    name: Icinga Production Agents end email G1 LA
+    needs: icinga_pro_updated_G1_LA
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G1 LA
+        run: echo "Sending Production Agents end email G1 LA"
+
+  icinga_pro_start_email_G2_LA:
+    name: Production Icinga g Start Email G2 LA
+    needs: icinga_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G2 LA
+        run: echo "Sending Production Start Email G2 LA"
+      
+  icinga_pro_updated_G2_LA:
+    name: Production Icinga Updated G2 LA
+    needs: icinga_pro_start_email_G2_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 LA
+        run: echo "Patching G2 LA"
+      
+  icinga_pro_end_email_G2_LA:
+    name: Icinga Production Agents end email G2 LA
+    needs: icinga_pro_updated_G2_LA
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G2 LA
+        run: echo "Sending Production Agents end email G2 LA"
+
+  icinga_pro_start_email_G1_KC:
+    name: Production Icinga g Start Email G1 KC
+    needs: icinga_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G1 KC
+        run: echo "Sending Production Start Email G1 KC"
+      
+  icinga_pro_updated_G1_KC:
+    name: Production Icinga Updated G1 KC
+    needs: icinga_pro_start_email_G1_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 KC
+        run: echo "Patching G1 KC"
+      
+  icinga_pro_end_email_G1_KC:
+    name: Icinga Production Agents end email G1 KC
+    needs: icinga_pro_updated_G1_KC
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G1 KC
+        run: echo "Sending Production Agents end email G1 KC"
+
+  icinga_pro_start_email_G2_KC:
+    name: Production Icinga g Start Email G2 KC
+    needs: icinga_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G2 KC
+        run: echo "Sending Production Start Email G2 KC"
+      
+  icinga_pro_updated_G2_KC:
+    name: Production Icinga Updated G2 KC
+    needs: icinga_pro_start_email_G2_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 KC
+        run: echo "Patching G2 KC"
+      
+  icinga_pro_end_email_G2_KC:
+    name: Icinga Production Agents end email G2 KC
+    needs: icinga_pro_updated_G2_KC
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G2 KC
+        run: echo "Sending Production Agents end email G2 KC"
+
+## Monswrm Production ##
+  monswrm_pro_approval:
+    name: Start Monswrm Production 
+    environment: monswrm_pro
+    runs-on: Linux
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Production Start"
+      
+  monswrm_pro_start_email_G1_LA:
+    name: Production Monswrm g Start Email G1 LA
+    needs: monswrm_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G1 LA
+        run: echo "Sending Production Start Email G1 LA"
+      
+  monswrm_pro_updated_G1_LA:
+    name: Production Monswrm Updated G1 LA
+    needs: monswrm_pro_start_email_G1_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 LA
+        run: echo "Patching G1 LA"
+      
+  monswrm_pro_end_email_G1_LA:
+    name: Monswrm Production Agents end email G1 LA
+    needs: monswrm_pro_updated_G1_LA
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G1 LA
+        run: echo "Sending Production Agents end email G1 LA"
+
+  monswrm_pro_start_email_G2_LA:
+    name: Production Monswrm g Start Email G2 LA
+    needs: monswrm_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G2 LA
+        run: echo "Sending Production Start Email G2 LA"
+      
+  monswrm_pro_updated_G2_LA:
+    name: Production Monswrm Updated G2 LA
+    needs: monswrm_pro_start_email_G2_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 LA
+        run: echo "Patching G2 LA"
+      
+  monswrm_pro_end_email_G2_LA:
+    name: Monswrm Production Agents end email G2 LA
+    needs: monswrm_pro_updated_G2_LA
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G2 LA
+        run: echo "Sending Production Agents end email G2 LA"
+
+  monswrm_pro_start_email_G1_KC:
+    name: Production Monswrm g Start Email G1 KC
+    needs: monswrm_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G1 KC
+        run: echo "Sending Production Start Email G1 KC"
+      
+  monswrm_pro_updated_G1_KC:
+    name: Production Monswrm Updated G1 KC
+    needs: monswrm_pro_start_email_G1_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 KC
+        run: echo "Patching G1 KC"
+      
+  monswrm_pro_end_email_G1_KC:
+    name: Monswrm Production Agents end email G1 KC
+    needs: monswrm_pro_updated_G1_KC
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G1 KC
+        run: echo "Sending Production Agents end email G1 KC"
+
+  monswrm_pro_start_email_G2_KC:
+    name: Monswrm Production g Start Email G2 KC
+    needs: monswrm_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G2 KC
+        run: echo "Sending Production Start Email G2 KC"
+      
+  monswrm_pro_updated_G2_KC:
+    name: Monswrm Production Updated G2 KC
+    needs: monswrm_pro_start_email_G2_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 KC
+        run: echo "Patching G2 KC"
+      
+  monswrm_pro_end_email_G2_KC:
+    name: Monswrm Production Agents end email G2 KC
+    needs: monswrm_pro_updated_G2_KC
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G2 KC
+        run: echo "Sending Production Agents end email G2 KC"
+
+## Monmetric Production ##
+  monmetric_pro_approval:
+    name: Start Monmetric Production 
+    environment: monmetric_pro
+    runs-on: Linux
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Production Start"
+      
+  monmetric_pro_start_email_G1_LA:
+    name: Production Monmetric g Start Email G1 LA
+    needs: monmetric_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G1 LA
+        run: echo "Sending Production Start Email G1 LA"
+      
+  monmetric_pro_updated_G1_LA:
+    name: Production Monmetric Updated G1 LA
+    needs: monmetric_pro_start_email_G1_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 LA
+        run: echo "Patching G1 LA"
+      
+  monmetric_pro_end_email_G1_LA:
+    name: Monmetric Production Agents end email G1 LA
+    needs: monmetric_pro_updated_G1_LA
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G1 LA
+        run: echo "Sending Production Agents end email G1 LA"
+
+  monmetric_pro_start_email_G2_LA:
+    name: Production Monmetric g Start Email G2 LA
+    needs: monmetric_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G2 LA
+        run: echo "Sending Production Start Email G2 LA"
+      
+  monmetric_pro_updated_G2_LA:
+    name: Production Monmetric Updated G2 LA
+    needs: monmetric_pro_start_email_G2_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 LA
+        run: echo "Patching G2 LA"
+      
+  monmetric_pro_end_email_G2_LA:
+    name: Monmetric Production Agents end email G2 LA
+    needs: monmetric_pro_updated_G2_LA
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G2 LA
+        run: echo "Sending Production Agents end email G2 LA"
+
+  monmetric_pro_start_email_G1_KC:
+    name: Production Monmetric g Start Email G1 KC
+    needs: monmetric_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G1 KC
+        run: echo "Sending Production Start Email G1 KC"
+      
+  monmetric_pro_updated_G1_KC:
+    name: Production Monmetric Updated G1 KC
+    needs: monmetric_pro_start_email_G1_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 KC
+        run: echo "Patching G1 KC"
+      
+  monmetric_pro_end_email_G1_KC:
+    name: Monmetric Production Agents end email G1 KC
+    needs: monmetric_pro_updated_G1_KC
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G1 KC
+        run: echo "Sending Production Agents end email G1 KC"
+
+  monmetric_pro_start_email_G2_KC:
+    name: Monmetric Production g Start Email G2 KC
+    needs: monmetric_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Production Start Email G2 KC
+        run: echo "Sending Production Start Email G2 KC"
+      
+  monmetric_pro_updated_G2_KC:
+    name: Monmetric Production Updated G2 KC
+    needs: monmetric_pro_start_email_G2_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 KC
+        run: echo "Patching G2 KC"
+      
+  monmetric_pro_end_email_G2_KC:
+    name: Monmetric Production Agents end email G2 KC
+    needs: monmetric_pro_updated_G2_KC
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G2 KC
+        run: echo "Sending Production Agents end email G2 KC"
+
+  ## Ngmode Production ##
+  mgmnode_pro_approval:
+    name: Start Ngmode Production 
+    environment: mgmnode_pro
+    runs-on: Linux
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Production Start"
+      
+  mgmnode_pro_start_email_G1_LA:
+    name: Production Ngmode g Start Email G1 LA
+    needs: mgmnode_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G1 LA
+        run: echo "Sending Staging Start Email G1 LA"
+      
+  mgmnode_pro_updated_G1_LA:
+    name: Production Ngmode Updated G1 LA
+    needs: mgmnode_pro_start_email_G1_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 LA
+        run: echo "Patching G1 LA"
+      
+  mgmnode_pro_end_email_G1_LA:
+    name: Ngmode Production Agents end email G1 LA
+    needs: mgmnode_pro_updated_G1_LA
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G1 LA
+        run: echo "Sending Production Agents end email G1 LA"
+
+  mgmnode_pro_start_email_G1_KC:
+    name: Production Ngmode g Start Email G1 KC
+    needs: mgmnode_pro_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G1 KC
+        run: echo "Sending Staging Start Email G1 KC"
+      
+  mgmnode_pro_updated_G1_KC:
+    name: Production Ngmode Updated G1 KC
+    needs: mgmnode_pro_start_email_G1_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 KC
+        run: echo "Patching G1 KC"
+      
+  mgmnode_pro_end_email_G1_KC:
+    name: Ngmode Production Agents end email G1 KC
+    needs: mgmnode_pro_updated_G1_KC
+    runs-on: Linux
+    steps:
+      - name: Send Production Agents end email G1 KC
+        run: echo "Sending Production Agents end email G1 KC"
