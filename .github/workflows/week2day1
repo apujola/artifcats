@@ -1,0 +1,320 @@
+name: Production
+
+on:
+  workflow_dispatch:  # manual trigger
+
+jobs:
+
+## k8s-c01-c Production ##
+  k8s-c01-c_stg_approval:
+    name: Start k8s-c01-c Staging
+    environment: k8s-c01-c_stg
+    runs-on: Linux
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Staging Start G1 & G2 for LA & KC"
+      
+  k8s-c01-c_stg_start_email_G1_KC:
+    name: Staging k8s-c01-c Start Email G1 KC
+    needs: k8s-c01-c_stg_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G1 KC
+        run: echo "Sending Staging Start Email G1 KC"
+      
+  k8s-c01-c_stg_updated_G1_KC:
+    name: Staging k8s-c01-c Updated G1 KC
+    needs: k8s-c01-c_stg_start_email_G1_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 KC
+        run: echo "Patching G1 KC"
+      
+  k8s-c01-c_stg_end_email_G1_KC:
+    name: k8s-c01-c Staging Agents end email G1 KC
+    needs: k8s-c01-c_stg_updated_G1_KC
+    runs-on: Linux
+    steps:
+      - name: Send Staging Agents end email G1 KC
+        run: echo "Sending Staging Agents end email G1 KC"
+
+  k8s-c01-c_stg_start_email_G2_KC:
+    name: Staging k8s-c01-c Start Email G2 KC
+    needs: k8s-c01-c_stg_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G2 KC
+        run: echo "Sending Staging Start Email G2 KC"
+      
+  k8s-c01-c_stg_updated_G2_KC:
+    name: Staging k8s-c01-c Updated G2 KC
+    needs: k8s-c01-c_stg_start_email_G2_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 KC
+        run: echo "Patching G2 KC"
+      
+  k8s-c01-c_stg_end_email_G2_KC:
+    name: k8s-c01-c Staging Agents end email G2 KC
+    needs: k8s-c01-c_stg_updated_G2_KC
+    runs-on: Linux
+    steps:
+      - name: Send Staging Agents end email G2 KC
+        run: echo "Sending Staging Agents end email G2 KC"
+
+  k8s-c01-c_stg_start_email_G1_LA:
+    name: Staging k8s-c01-c Start Email G1 LA
+    needs: k8s-c01-c_stg_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G1 LA
+        run: echo "Sending Staging Start Email G1 LA"
+      
+  k8s-c01-c_stg_updated_G1_LA:
+    name: Staging k8s-c01-c Updated G1 LA
+    needs: k8s-c01-c_stg_start_email_G1_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 LA
+        run: echo "Patching G1 LA"
+      
+  k8s-c01-c_stg_end_email_G1_LA:
+    name: k8s-c01-c Staging Agents end email G1 LA
+    needs: k8s-c01-c_stg_updated_G1_LA
+    runs-on: Linux
+    steps:
+      - name: Send Staging Agents end email G1 LA
+        run: echo "Sending Staging Agents end email G1 LA"
+
+  k8s-c01-c_stg_start_email_G2_LA:
+    name: Staging k8s-c01-c Start Email G2 LA
+    needs: k8s-c01-c_stg_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G2 LA
+        run: echo "Sending Staging Start Email G2 LA"
+      
+  k8s-c01-c_stg_updated_G2_LA:
+    name: Staging k8s-c01-c Updated G2 LA
+    needs: k8s-c01-c_stg_start_email_G2_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 LA
+        run: echo "Patching G2 LA"
+      
+  k8s-c01-c_stg_end_email_G2_LA:
+    name: k8s-c01-c Staging Agents end email G2 LA
+    needs: k8s-c01-c_stg_updated_G2_LA
+    runs-on: Linux
+    steps:
+      - name: Send Staging Agents end email G2 LA
+        run: echo "Sending Staging Agents end email G2 LA"
+
+## k8s-c01-w Production ##
+  k8s-c01-w_stg_approval:
+    name: Start k8s-c01-w Staging
+    environment: k8s-c01-w_stg
+    runs-on: Linux
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Staging Start G1 & G2 for LA & KC"
+      
+  k8s-c01-w_stg_start_email_G1_KC:
+    name: Staging k8s-c01-w Start Email G1 KC
+    needs: k8s-c01-w_stg_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G1 KC
+        run: echo "Sending Staging Start Email G1 KC"
+      
+  k8s-c01-w_stg_updated_G1_KC:
+    name: Staging k8s-c01-w Updated G1 KC
+    needs: k8s-c01-w_stg_start_email_G1_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 KC
+        run: echo "Patching G1 KC"
+      
+  k8s-c01-w_stg_end_email_G1_KC:
+    name: k8s-c01-w Staging Agents end email G1 KC
+    needs: k8s-c01-w_stg_updated_G1_KC
+    runs-on: Linux
+    steps:
+      - name: Send Staging Agents end email G1 KC
+        run: echo "Sending Staging Agents end email G1 KC"
+
+  k8s-c01-w_stg_start_email_G2_KC:
+    name: Staging k8s-c01-w Start Email G2 KC
+    needs: k8s-c01-w_stg_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G2 KC
+        run: echo "Sending Staging Start Email G2 KC"
+      
+  k8s-c01-w_stg_updated_G2_KC:
+    name: Staging k8s-c01-w Updated G2 KC
+    needs: k8s-c01-w_stg_start_email_G2_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 KC
+        run: echo "Patching G2 KC"
+      
+  k8s-c01-w_stg_end_email_G2_KC:
+    name: k8s-c01-w Staging Agents end email G2 KC
+    needs: k8s-c01-w_stg_updated_G2_KC
+    runs-on: Linux
+    steps:
+      - name: Send Staging Agents end email G2 KC
+        run: echo "Sending Staging Agents end email G2 KC"
+
+k8s-c01-w_stg_start_email_G1_LA:
+    name: Staging k8s-c01-w Start Email G1 LA
+    needs: k8s-c01-w_stg_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G1 LA
+        run: echo "Sending Staging Start Email G1 LA"
+      
+  k8s-c01-w_stg_updated_G1_LA:
+    name: Staging k8s-c01-w Updated G1 LA
+    needs: k8s-c01-w_stg_start_email_G1_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G1 LA
+        run: echo "Patching G1 LA"
+      
+  k8s-c01-w_stg_end_email_G1_LA:
+    name: k8s-c01-w Staging Agents end email G1 LA
+    needs: k8s-c01-w_stg_updated_G1_LA
+    runs-on: Linux
+    steps:
+      - name: Send Staging Agents end email G1 LA
+        run: echo "Sending Staging Agents end email G1 LA"
+
+  k8s-c01-w_stg_start_email_G2_LA:
+    name: Staging k8s-c01-w Start Email G2 LA
+    needs: k8s-c01-w_stg_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G2 LA
+        run: echo "Sending Staging Start Email G2 LA"
+      
+  k8s-c01-w_stg_updated_G2_LA:
+    name: Staging k8s-c01-w Updated G2 LA
+    needs: k8s-c01-w_stg_start_email_G2_LA
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 LA
+        run: echo "Patching G2 LA"
+      
+  k8s-c01-w_stg_end_email_G2_LA:
+    name: k8s-c01-w Staging Agents end email G2 LA
+    needs: k8s-c01-w_stg_updated_G2_LA
+    runs-on: Linux
+    steps:
+      - name: Send Staging Agents end email G2 LA
+        run: echo "Sending Staging Agents end email G2 LA"
+
+## Redis Production ##
+  redis_stg_approval:
+    name: Start Redis Staging 
+    environment: redis_stg
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Approval
+        run: echo "Approval required for Staging Start"
+      
+  redis_stg_start_email_G1:
+    name: Staging Redis g Start Email G1
+    needs: redis_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Start Email G1
+        run: echo "Sending Staging Start Email G1"
+      
+  redis_stg_updated_G1:
+    name: Staging redis Updated G1
+    needs: redis_stg_start_email_G1
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start G1
+        run: echo "Patching G1"
+      
+  redis_stg_end_email_G1:
+    name: Redis Staging Agents end email G1
+    needs: redis_stg_updated_G1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Agents end email G1
+        run: echo "Sending Staging Agents end email G1"
+
+  redis_stg_start_email_G2:
+    name: Staging Redis g Start Email G2
+    needs: redis_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Start Email G2
+        run: echo "Sending Staging Start Email G2"
+      
+  redis_stg_updated_G2:
+    name: Staging redis Updated G2
+    needs: redis_stg_start_email_G2
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start G2
+        run: echo "Patching G2"
+      
+  redis_stg_end_email_G2:
+    name: Redis Staging Agents end email G2
+    needs: redis_stg_updated_G2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Agents end email G2
+        run: echo "Sending Staging Agents end email G2"
+redis_stg_start_email_G1:
+    name: Staging Redis g Start Email G1
+    needs: redis_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Start Email G1
+        run: echo "Sending Staging Start Email G1"
+      
+  redis_stg_updated_G1:
+    name: Staging redis Updated G1
+    needs: redis_stg_start_email_G1
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start G1
+        run: echo "Patching G1"
+      
+  redis_stg_end_email_G1:
+    name: Redis Staging Agents end email G1
+    needs: redis_stg_updated_G1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Agents end email G1
+        run: echo "Sending Staging Agents end email G1"
+
+  redis_stg_start_email_G2:
+    name: Staging Redis g Start Email G2
+    needs: redis_stg_approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Start Email G2
+        run: echo "Sending Staging Start Email G2"
+      
+  redis_stg_updated_G2:
+    name: Staging redis Updated G2
+    needs: redis_stg_start_email_G2
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Patching start G2
+        run: echo "Patching G2"
+      
+  redis_stg_end_email_G2:
+    name: Redis Staging Agents end email G2
+    needs: redis_stg_updated_G2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Staging Agents end email G2
+        run: echo "Sending Staging Agents end email G2"
