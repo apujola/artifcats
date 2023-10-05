@@ -213,7 +213,6 @@ jobs:
 ## Redis Certification ##
   redis_crt_approval_G1:
     name: Start Certification G1
-    needs: redis_stg_end_email_G1
     environment: redis_crt
     runs-on: ubuntu-latest
     steps:
