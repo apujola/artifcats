@@ -199,7 +199,7 @@ jobs:
       - name: Send Staging Start Email G2 LA
         run: echo "Sending Staging Start Email G2 LA"
       
-  k8s-c01-w_stg_updated_G2_LA:
+  k8s-c01-w_pro_updated_G2_LA:
     name: Production k8s-c01-w Updated G2 LA
     needs: k8s-c01-w_pro_start_email_G2_LA
     runs-on: Linux
