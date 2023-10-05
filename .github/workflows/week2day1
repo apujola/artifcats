@@ -224,97 +224,98 @@ k8s-c01-w_stg_start_email_G1_LA:
       - name: Request Approval
         run: echo "Approval required for Staging Start"
       
-  redis_stg_start_email_G1:
-    name: Staging Redis g Start Email G1
+  redis_stg_start_email_G1_LA:
+    name: Staging Redis g Start Email G1 LA
     needs: redis_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
-      - name: Send Staging Start Email G1
-        run: echo "Sending Staging Start Email G1"
+      - name: Send Staging Start Email G1 LA
+        run: echo "Sending Staging Start Email G1 LA"
       
-  redis_stg_updated_G1:
-    name: Staging redis Updated G1
-    needs: redis_stg_start_email_G1
-    runs-on: ubuntu-latest
+  redis_stg_updated_G1_LA:
+    name: Staging redis Updated G1 LA
+    needs: redis_stg_start_email_G1_LA
+    runs-on: Linux
     steps: 
-      - name: Patching start G1
-        run: echo "Patching G1"
+      - name: Patching start G1 LA
+        run: echo "Patching G1 LA"
       
-  redis_stg_end_email_G1:
-    name: Redis Staging Agents end email G1
-    needs: redis_stg_updated_G1
-    runs-on: ubuntu-latest
+  redis_stg_end_email_G1_LA:
+    name: Redis Staging Agents end email G1 LA
+    needs: redis_stg_updated_G1_LA
+    runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G1
-        run: echo "Sending Staging Agents end email G1"
+      - name: Send Staging Agents end email G1 LA
+        run: echo "Sending Staging Agents end email G1 LA"
 
-  redis_stg_start_email_G2:
-    name: Staging Redis g Start Email G2
+  redis_stg_start_email_G2_LA:
+    name: Staging Redis g Start Email G2 LA
     needs: redis_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
-      - name: Send Staging Start Email G2
-        run: echo "Sending Staging Start Email G2"
+      - name: Send Staging Start Email G2 LA
+        run: echo "Sending Staging Start Email G2 LA"
       
-  redis_stg_updated_G2:
-    name: Staging redis Updated G2
-    needs: redis_stg_start_email_G2
-    runs-on: ubuntu-latest
+  redis_stg_updated_G2_LA:
+    name: Staging redis Updated G2 LA
+    needs: redis_stg_start_email_G2_LA
+    runs-on: Linux
     steps: 
-      - name: Patching start G2
-        run: echo "Patching G2"
+      - name: Patching start G2 LA
+        run: echo "Patching G2 LA"
       
-  redis_stg_end_email_G2:
-    name: Redis Staging Agents end email G2
-    needs: redis_stg_updated_G2
-    runs-on: ubuntu-latest
+  redis_stg_end_email_G2_LA:
+    name: Redis Staging Agents end email G2 LA
+    needs: redis_stg_updated_G2_LA
+    runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G2
-        run: echo "Sending Staging Agents end email G2"
-redis_stg_start_email_G1:
-    name: Staging Redis g Start Email G1
-    needs: redis_stg_approval
-    runs-on: ubuntu-latest
-    steps:
-      - name: Send Staging Start Email G1
-        run: echo "Sending Staging Start Email G1"
-      
-  redis_stg_updated_G1:
-    name: Staging redis Updated G1
-    needs: redis_stg_start_email_G1
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Patching start G1
-        run: echo "Patching G1"
-      
-  redis_stg_end_email_G1:
-    name: Redis Staging Agents end email G1
-    needs: redis_stg_updated_G1
-    runs-on: ubuntu-latest
-    steps:
-      - name: Send Staging Agents end email G1
-        run: echo "Sending Staging Agents end email G1"
+      - name: Send Staging Agents end email G2 LA
+        run: echo "Sending Staging Agents end email G2 LA"
 
-  redis_stg_start_email_G2:
-    name: Staging Redis g Start Email G2
+  redis_stg_start_email_G1_KC:
+    name: Staging Redis g Start Email G1 KC
     needs: redis_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
-      - name: Send Staging Start Email G2
-        run: echo "Sending Staging Start Email G2"
+      - name: Send Staging Start Email G1 KC
+        run: echo "Sending Staging Start Email G1 KC"
       
-  redis_stg_updated_G2:
-    name: Staging redis Updated G2
-    needs: redis_stg_start_email_G2
-    runs-on: ubuntu-latest
+  redis_stg_updated_G1_KC:
+    name: Staging redis Updated G1 KC
+    needs: redis_stg_start_email_G1_KC
+    runs-on: Linux
     steps: 
-      - name: Patching start G2
-        run: echo "Patching G2"
+      - name: Patching start G1 KC
+        run: echo "Patching G1 KC"
       
-  redis_stg_end_email_G2:
-    name: Redis Staging Agents end email G2
-    needs: redis_stg_updated_G2
-    runs-on: ubuntu-latest
+  redis_stg_end_email_G1_KC:
+    name: Redis Staging Agents end email G1 KC
+    needs: redis_stg_updated_G1_KC
+    runs-on: Linux
     steps:
-      - name: Send Staging Agents end email G2
-        run: echo "Sending Staging Agents end email G2"
+      - name: Send Staging Agents end email G1 KC
+        run: echo "Sending Staging Agents end email G1 KC"
+
+  redis_stg_start_email_G2_KC:
+    name: Staging Redis g Start Email G2 KC
+    needs: redis_stg_approval
+    runs-on: Linux
+    steps:
+      - name: Send Staging Start Email G2 KC
+        run: echo "Sending Staging Start Email G2 KC"
+      
+  redis_stg_updated_G2_KC:
+    name: Staging redis Updated G2 KC
+    needs: redis_stg_start_email_G2_KC
+    runs-on: Linux
+    steps: 
+      - name: Patching start G2 KC
+        run: echo "Patching G2 KC"
+      
+  redis_stg_end_email_G2_KC:
+    name: Redis Staging Agents end email G2 KC
+    needs: redis_stg_updated_G2_KC
+    runs-on: Linux
+    steps:
+      - name: Send Staging Agents end email G2 KC
+        run: echo "Sending Staging Agents end email G2 KC"
