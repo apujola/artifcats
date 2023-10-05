@@ -167,7 +167,7 @@ jobs:
       - name: Send Staging Agents end email G2 KC
         run: echo "Sending Staging Agents end email G2 KC"
 
-k8s-c01-w_stg_start_email_G1_LA:
+  k8s-c01-w_stg_start_email_G1_LA:
     name: Staging k8s-c01-w Start Email G1 LA
     needs: k8s-c01-w_stg_approval
     runs-on: Linux
