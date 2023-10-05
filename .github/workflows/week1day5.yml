@@ -9,7 +9,7 @@ jobs:
   k8s-c01-c_stg_approval:
     name: Start k8s-c01-c Staging
     environment: k8s-c01-c_stg
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Request Approval
         run: echo "Approval required for Staging Start"
@@ -17,7 +17,7 @@ jobs:
   k8s-c01-c_stg_start_email_G1:
     name: Staging k8s-c01-c Start Email G1
     needs: k8s-c01-c_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Start Email G1
         run: echo "Sending Staging Start Email"
@@ -25,7 +25,7 @@ jobs:
   k8s-c01-c_stg_updated_G1:
     name: Staging k8s-c01-c Updated G1
     needs: k8s-c01-c_stg_start_email_G1
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps: 
       - name: Patching start
         run: echo "Patching"
@@ -33,7 +33,7 @@ jobs:
   k8s-c01-c_stg_end_email_G1:
     name: k8s-c01-c Staging Agents end email G1
     needs: k8s-c01-c_stg_updated_G1
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Agents end email G1
         run: echo "Sending Staging Agents end email"
@@ -41,7 +41,7 @@ jobs:
   k8s-c01-c_stg_start_email_G2:
     name: Staging k8s-c01-c Start Email G2
     needs: k8s-c01-c_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Start Email G2
         run: echo "Sending Staging Start Email"
@@ -49,7 +49,7 @@ jobs:
   k8s-c01-c_stg_updated_G2:
     name: Staging k8s-c01-c Updated G2
     needs: k8s-c01-c_stg_start_email_G2
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps: 
       - name: Patching start
         run: echo "Patching"
@@ -57,7 +57,7 @@ jobs:
   k8s-c01-c_stg_end_email_G2:
     name: k8s-c01-c Staging Agents end email G2
     needs: k8s-c01-c_stg_updated_G2
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Agents end email G2
         run: echo "Sending Staging Agents end email"
@@ -66,7 +66,7 @@ jobs:
   k8s-c01-w_stg_approval:
     name: Start k8s-c01-w Staging 
     environment: k8s-c01-w_stg
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Request Approval
         run: echo "Approval required for Staging Start"
@@ -74,7 +74,7 @@ jobs:
   k8s-c01-w_stg_start_email_G1:
     name: Staging k8s-c01-w Start Email G1
     needs: k8s-c01-w_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Start Email G1
         run: echo "Sending Staging Start Email"
@@ -82,7 +82,7 @@ jobs:
   k8s-c01-w_stg_updated_G1:
     name: Staging k8s-c01-w Updated
     needs: k8s-c01-w_stg_start_email_G1
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps: 
       - name: Patching start G1
         run: echo "Patching"
@@ -90,7 +90,7 @@ jobs:
   k8s-c01-w_stg_end_email_G1:
     name: k8s-c01-w Staging Agents end email G1
     needs: k8s-c01-w_stg_updated_G1
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Agents end email G1
         run: echo "Sending Staging Agents end email"
@@ -98,7 +98,7 @@ jobs:
   k8s-c01-w_stg_start_email_G2:
     name: Staging k8s-c01-w Start Email G2
     needs: k8s-c01-w_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Start Email G2
         run: echo "Sending Staging Start Email"
@@ -106,7 +106,7 @@ jobs:
   k8s-c01-w_stg_updated_G2:
     name: Staging k8s-c01-w Updated G2
     needs: k8s-c01-w_stg_start_email_G2
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps: 
       - name: Patching start G2
         run: echo "Patching"
@@ -114,7 +114,7 @@ jobs:
   k8s-c01-w_stg_end_email_G2:
     name: k8s-c01-w Staging Agents end email G2
     needs: k8s-c01-w_stg_updated_G2
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Agents end email G2
         run: echo "Sending Staging Agents end email"
@@ -123,7 +123,7 @@ jobs:
   rancher_stg_approval:
     name: Start Rancher Staging 
     environment: rancher_stg
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Request Approval
         run: echo "Approval required for Staging Start"
@@ -131,7 +131,7 @@ jobs:
   rancher_stg_start_email:
     name: Staging Rancher Start Email
     needs: rancher_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Start Email
         run: echo "Sending Staging Start Email"
@@ -139,7 +139,7 @@ jobs:
   rancher_stg_updated:
     name: Staging Rancher Updated
     needs: rancher_stg_start_email
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps: 
       - name: Patching start
         run: echo "Patching"
@@ -147,7 +147,7 @@ jobs:
   rancher_stg_end_email:
     name: Rancher Staging Agents end email
     needs: rancher_stg_updated
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Agents end email
         run: echo "Sending Staging Agents end email"
@@ -156,7 +156,7 @@ jobs:
   redis_stg_approval:
     name: Start Redis Staging 
     environment: redis_stg
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Request Approval
         run: echo "Approval required for Staging Start"
@@ -164,7 +164,7 @@ jobs:
   redis_stg_start_email_G1:
     name: Staging Redis g Start Email G1
     needs: redis_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Start Email G1
         run: echo "Sending Staging Start Email G1"
@@ -172,7 +172,7 @@ jobs:
   redis_stg_updated_G1:
     name: Staging redis Updated G1
     needs: redis_stg_start_email_G1
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps: 
       - name: Patching start G1
         run: echo "Patching G1"
@@ -180,7 +180,7 @@ jobs:
   redis_stg_end_email_G1:
     name: Redis Staging Agents end email G1
     needs: redis_stg_updated_G1
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Agents end email G1
         run: echo "Sending Staging Agents end email G1"
@@ -188,7 +188,7 @@ jobs:
   redis_stg_start_email_G2:
     name: Staging Redis g Start Email G2
     needs: redis_stg_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Start Email G2
         run: echo "Sending Staging Start Email G2"
@@ -196,7 +196,7 @@ jobs:
   redis_stg_updated_G2:
     name: Staging redis Updated G2
     needs: redis_stg_start_email_G2
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps: 
       - name: Patching start G2
         run: echo "Patching G2"
@@ -204,7 +204,7 @@ jobs:
   redis_stg_end_email_G2:
     name: Redis Staging Agents end email G2
     needs: redis_stg_updated_G2
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Staging Agents end email G2
         run: echo "Sending Staging Agents end email G2"
@@ -213,7 +213,7 @@ jobs:
   redis_crt_approval:
     name: Start Redis Certification
     environment: redis_crt
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Request Approval
         run: echo "Approval required for Certification Start"
@@ -221,7 +221,7 @@ jobs:
   redis_crt_start_email_G1:
     name: Certification Start Email G1
     needs: redis_crt_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Certification Start Email G1
         run: echo "Sending Certification Start Email G1"
@@ -229,7 +229,7 @@ jobs:
   redis_crt_updated_G1:
     name: Certification Updated G1
     needs: redis_crt_start_email_G1
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps: 
       - name: Patching start G1
         run: echo "Patching G1"
@@ -237,7 +237,7 @@ jobs:
   redis_crt_end_email_G1:
     name: Certification Agents end email G1
     needs: redis_crt_updated_G1
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Certification Agents end email G1
         run: echo "Sending Certification Agents end email G1"        
@@ -245,7 +245,7 @@ jobs:
   redis_crt_start_email_G2:
     name: Certification Start Email G2
     needs: redis_crt_approval
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Certification Start Email G2
         run: echo "Sending Certification Start Email G2"
@@ -253,7 +253,7 @@ jobs:
   redis_crt_updated_G2:
     name: Certification Updated G2
     needs: redis_crt_start_email_G2
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps: 
       - name: Patching start G2
         run: echo "Patching G2"
@@ -261,7 +261,7 @@ jobs:
   redis_crt_end_email_G2:
     name: Certification Agents end email G2
     needs: redis_crt_updated_G2
-    runs-on: ubuntu-latest
+    runs-on: Linux
     steps:
       - name: Send Certification Agents end email G2
         run: echo "Sending Certification Agents end email G2"
