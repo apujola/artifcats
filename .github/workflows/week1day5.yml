@@ -210,17 +210,17 @@ jobs:
         run: echo "Sending Staging Agents end email G2"
 
 ## Redis Certification ##
-  redis_crt_approval_G1:
-    name: Start Certification G1
+  redis_crt_approval:
+    name: Start Certification
     environment: redis_crt
     runs-on: ubuntu-latest
     steps:
-      - name: Request Approval G1
-        run: echo "Approval required for Certification Start G1"
+      - name: Request Approval
+        run: echo "Approval required for Certification Start"
       
   redis_crt_start_email_G1:
     name: Certification Start Email G1
-    needs: redis_crt_approval_G1
+    needs: redis_crt_approval
     runs-on: ubuntu-latest
     steps:
       - name: Send Certification Start Email G1
@@ -240,19 +240,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Certification Agents end email G1
-        run: echo "Sending Certification Agents end email G1"
-        
-  redis_crt_approval_G2:
-    name: Start Certification G2
-    environment: redis_crt
-    runs-on: ubuntu-latest
-    steps:
-      - name: Request Approval G2
-        run: echo "Approval required for Certification Start G2"
+        run: echo "Sending Certification Agents end email G1"        
       
   redis_crt_start_email_G2:
     name: Certification Start Email G2
-    needs: redis_crt_approval_G2
+    needs: redis_crt_approval
     runs-on: ubuntu-latest
     steps:
       - name: Send Certification Start Email G2
