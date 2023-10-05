@@ -211,7 +211,7 @@ jobs:
 
 ## Redis Certification ##
   redis_crt_approval:
-    name: Start Certification
+    name: Start Redis Certification
     environment: redis_crt
     runs-on: ubuntu-latest
     steps:
