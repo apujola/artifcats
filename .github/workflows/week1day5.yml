@@ -209,7 +209,6 @@ jobs:
       - name: Send Staging Agents end email G2
         run: echo "Sending Staging Agents end email G2"
 
-
 ## Redis Certification ##
   redis_crt_approval_G1:
     name: Start Certification G1
@@ -245,7 +244,6 @@ jobs:
         
   redis_crt_approval_G2:
     name: Start Certification G2
-    needs: redis_stg_end_email_G2
     environment: redis_crt
     runs-on: ubuntu-latest
     steps:
